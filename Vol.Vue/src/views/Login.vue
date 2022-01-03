@@ -13,10 +13,10 @@
       <div class="l-left">
         <div class="desc">
           <div class="title">vol.vue</div>
-               <p>后台</p>
+          <p>后台</p>
           <p>.NetCore、EntityFrameWorkCore、Dapper、Redis</p>
           <p>Vue、Promise、Vuex、IView、Element-UI</p>
-          <p>演示帐号：admin666  密码:123456</p>
+          <p>演示帐号：admin666 密码:123456</p>
           <p>本地帐号：admin &nbsp; &nbsp; &nbsp; 密码:123456</p>
           <div style="margin-top: 30px">
             <a
@@ -35,7 +35,7 @@
             >
               <span>Gitee</span></a
             >
-                <a
+            <a
               href="http://v2.volcore.xyz/app/guide"
               target="_blank"
               style="color: #ffff; border: 1px solid #ffff; width: 80px;margin-right: 5px;"
@@ -57,7 +57,7 @@
       <div class="login">
         <div class="login-contianer">
           <div class="login-form">
-      <h2 style="padding: 20px 0px;font-weight: 500;">帐号登陆</h2>
+            <h2 style="padding: 20px 0px;font-weight: 500;">帐号登陆</h2>
             <div class="form-user" @keypress="loginPress">
               <div class="item">
                 <div class="f-text">
@@ -148,9 +148,9 @@
         </div>
       </div>
     </div>
- <div class="l-bg"></div>
+    <div class="l-bg"></div>
     <div class="r-bg"></div>
-     <!--   <div class="c-bg">
+    <!--   <div class="c-bg">
       <div class="c-bg-item"></div>
       <div class="c-bg-item"></div>
       <div class="c-bg-item"></div>
@@ -174,23 +174,23 @@ export default {
       userInfo: {
         userName: "",
         passWord: "",
-        verificationCode: "",
-      },
+        verificationCode: ""
+      }
     };
   },
   directives: {
     focus: {
-      inserted: function (el) {
+      inserted: function(el) {
         el.focus();
-      },
-    },
+      }
+    }
   },
   created() {
     this.getVierificationCode();
   },
   methods: {
     getVierificationCode() {
-      this.http.get("/api/User/getVierificationCode").then((x) => {
+      this.http.get("/api/User/getVierificationCode").then(x => {
         this.codeImgSrc = "data:image/png;base64," + x.img;
         this.userInfo.UUID = x.uuid;
       });
@@ -217,7 +217,7 @@ export default {
       this.loading = true;
       this.http
         .post("/api/user/login", this.userInfo, "正在登陆....")
-        .then((result) => {
+        .then(result => {
           if (!result.status) {
             this.loading = false;
             this.getVierificationCode();
@@ -227,8 +227,8 @@ export default {
           this.$store.commit("setUserInfo", result.data);
           this.$router.push({ path: "/" });
         });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -264,16 +264,14 @@ export default {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     width: 400px;
-    background-image: linear-gradient( 
-135deg
- , #0d82ff 10%, #0cd7bd);
+    background-image: linear-gradient(135deg, #0d82ff 10%, #0cd7bd);
     border: 1px solid #5c87ff;
   }
 }
 
 .desc {
   width: 450px;
-padding: 10px 30px;
+  padding: 10px 30px;
   box-sizing: border-box;
   height: 100%;
 }
@@ -375,7 +373,7 @@ input:-webkit-autofill {
     width: 400px;
     min-height: 340px;
     background: white;
-        height: 400px;
+    height: 400px;
     box-shadow: 0px 4px 21px #d6d6d6;
   }
 }
@@ -443,10 +441,10 @@ input:-webkit-autofill {
   .l-bg {
     display: none;
   }
-  .l-left{
-        display: none;
+  .l-left {
+    display: none;
   }
-  .c-bg-item{
+  .c-bg-item {
     background: none !important;
   }
 }
@@ -490,6 +488,3 @@ input {
   }
 }
 </style>
-
-
-

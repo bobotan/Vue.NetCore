@@ -205,7 +205,9 @@ namespace VOL.WebApi
             app.UseRouting();
             //UseCors,UseAuthenticationg两个位置的顺序很重要 
             app.UseCors();
+            //1.先开启认证
             app.UseAuthentication();
+            //2.在开启授权
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
